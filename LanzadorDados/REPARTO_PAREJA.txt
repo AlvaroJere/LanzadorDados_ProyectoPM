@@ -1,0 +1,30 @@
+REPARTO DEL TRABAJO EN DOS MITADES
+==================================
+Las dos mitades solo comparten un "contrato":
+  - La clase Tirada (jugador:String, caras:int, resultado:int)
+  - La clave del Intent: TiradaActivity.EXTRA_TIRADA = "tirada"
+  - Los textos de strings.xml (cada parte tiene su bloque marcado)
+
+MITAD A  (Integrante A)  ->  "Crear la tirada"
+  - Tirada.java                  (modelo, Serializable, getters/setters)
+  - TiradaActivity.java          (EditText, Spinner, lógica del dado, setResult)
+  - res/layout/activity_tirada.xml
+  - strings.xml: bloque "TiradaActivity" + string-array dados_opciones
+  Requisitos que cubre: 2 (Spinner/campos/botones), 3, parte de 4 (devolver
+  objeto y cancelar), parte de 7.
+
+MITAD B  (Integrante B)  ->  "Mostrar el historial"
+  - MainActivity.java            (ArrayList, ActivityResultLauncher, inflado)
+  - res/layout/activity_main.xml (ScrollView + LinearLayout)
+  - res/layout/item_tirada.xml   (diseño reutilizable)
+  - strings.xml: bloque "MainActivity"
+  Requisitos que cubre: 1 (navegación), parte de 4 (recibir resultado),
+  5, 6, parte de 7.
+
+Archivos comunes (los hace quien quiera, o se copian tal cual):
+  AndroidManifest.xml, build.gradle, settings.gradle, themes.xml.
+
+IMPORTANTE PARA LA DEFENSA: cada uno debe entender TODO el proyecto.
+Ensayad explicándoos mutuamente vuestra mitad y probad modificaciones
+sencillas (p. ej. añadir un dado D12 en el string-array, o mostrar en
+rojo el resultado máximo en item_tirada).
